@@ -1,0 +1,28 @@
+package ${package.ServiceImpl};
+
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import ${superServiceImplClassPackage};
+import org.springframework.stereotype.Service;
+
+/**
+ *   @description : ${entity} 服务实现类
+ *   ---------------------------------
+ * 	 @author ${author}
+ *   @since ${date}
+ */
+@Service
+public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}> implements ${table.serviceName} {
+
+    @Override
+    public PageUtils queryPage(Map<String, Object> params) {
+        IPage<${entity}> page = this.page(
+                new Query<${entity}>(params).getPage(),
+                new QueryWrapper<${entity}>()
+        );
+
+        return new PageUtils(page);
+    }
+
+}

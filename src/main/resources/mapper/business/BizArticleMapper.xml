@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.secdn.secdnrapid.modules.business.mapper.BizArticleMapper">
+
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.secdn.secdnrapid.modules.business.entity.BizArticle">
+                    <id column="id" property="id" />
+                    <result column="title" property="title" />
+                    <result column="user_id" property="userId" />
+                    <result column="cover_image" property="coverImage" />
+                    <result column="qrcode_path" property="qrcodePath" />
+                    <result column="is_markdown" property="isMarkdown" />
+                    <result column="content" property="content" />
+                    <result column="content_md" property="contentMd" />
+                    <result column="top" property="top" />
+                    <result column="type_id" property="typeId" />
+                    <result column="status" property="status" />
+                    <result column="description" property="description" />
+                    <result column="keywords" property="keywords" />
+                    <result column="comment" property="comment" />
+                    <result column="create_time" property="createTime" />
+                    <result column="update_time" property="updateTime" />
+                    <result column="approval" property="approval" />
+                    <result column="approval_comment" property="approvalComment" />
+                    <result column="department" property="department" />
+                    <result column="subtitle" property="subtitle" />
+                    <result column="author" property="author" />
+                    <result column="release_time" property="releaseTime" />
+        </resultMap>
+
+        <!-- 通用查询结果列 -->
+        <sql id="Base_Column_List">
+           ${alias}.id,
+           ${alias}.title,
+           ${alias}.user_id,
+           ${alias}.cover_image,
+           ${alias}.qrcode_path,
+           ${alias}.is_markdown,
+           ${alias}.content,
+           ${alias}.content_md,
+           ${alias}.top,
+           ${alias}.type_id,
+           ${alias}.status,
+           ${alias}.description,
+           ${alias}.keywords,
+           ${alias}.comment,
+           ${alias}.create_time,
+           ${alias}.update_time,
+           ${alias}.approval,
+           ${alias}.approval_comment,
+           ${alias}.department,
+           ${alias}.subtitle,
+           ${alias}.author,
+           ${alias}.release_time
+        </sql>
+
+        <select id="queryAllPage" resultType="com.secdn.secdnrapid.modules.business.dto.BizArticleDto" parameterType="com.secdn.secdnrapid.modules.business.dto.BizArticleDto">
+            SELECT
+            <include refid="Base_Column_List">
+                <property name="alias" value="article"/>
+            </include>
+            ,type.`name` type_name FROM `biz_article` article ,`biz_type` type where article.type_id = type.id
+            <if test="bizArticleDto.typeId != null and bizArticleDto.typeId != '' ">
+                and article.type_id = #{bizArticleDto.typeId}
+            </if>
+        </select>
+
+
+</mapper>
