@@ -32,7 +32,7 @@
 #foreach($field in ${table.commonFields})
             #if(${field.name} == ${field.propertyName})${field.name}#else${field.name} AS ${field.propertyName}#end,
 #end
-        \${alias}.${table.fieldNames}
+            ${table.fieldNames}
         </sql>
 
     #end
