@@ -67,14 +67,6 @@ CREATE TABLE `biz_type`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 287 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of biz_type
--- ----------------------------
-INSERT INTO `biz_type` VALUES (280, 0, '通知', NULL, NULL, NULL, 1, '2019-03-14 16:22:20', '2019-03-14 16:22:20', NULL);
-INSERT INTO `biz_type` VALUES (282, 0, '司法解释', NULL, NULL, NULL, 1, '2019-03-14 16:22:36', '2019-03-14 16:22:36', NULL);
-INSERT INTO `biz_type` VALUES (283, 0, '司法文件', NULL, 0, NULL, 1, '2019-03-14 16:22:46', '2019-03-14 16:22:46', NULL);
-INSERT INTO `biz_type` VALUES (286, 0, '标准化工作', NULL, 0, NULL, 1, '2019-03-19 18:30:47', '2019-03-19 18:30:47', NULL);
-
--- ----------------------------
 -- Table structure for sys_captcha
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_captcha`;
